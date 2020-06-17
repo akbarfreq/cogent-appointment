@@ -6,7 +6,7 @@ node {
    }
    stage('Mvn Package'){
      // Build using maven
-     def mvn = tool (name: 'maven3', type: 'maven') + '/bin/mvn'
-     sh "${mvn}/bin/mvn package"
+     //def mvn = tool (name: 'maven3', type: 'maven') + '/bin/mvn'
+     sh 'mvn package'
    }
 }
