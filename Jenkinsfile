@@ -4,9 +4,11 @@ node {
   git 'https://github.com/akbarfreq/cogent-appointment'
    
    }
-   stage('Mvn Package'){
-     // Build using maven
-     //def mvn = tool (name: 'maven3', type: 'maven') + '/bin/mvn'
-     sh 'mvn package'
-   }
-}
+   stage ('build & push') {
+            steps {
+                container ('maven') {
+                    sh 'mvn -o -Dmaven.test.skip=true -gs `pwd`/configuration/settings.xml clean package'
+                   
+                    }
+                }
+            }
