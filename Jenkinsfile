@@ -9,7 +9,7 @@ node {
    
    stage('Mvn Package'){
      // Build using maven
-     
-     sh "mvn package"
+     def mvn = tool (name: 'maven3', type: 'maven') + '/bin/mvn'
+     sh "${mvn} clean package deploy"
    }
 }
